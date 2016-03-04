@@ -1,0 +1,44 @@
+package gjj.android.base.retrofit;
+
+import okhttp3.OkHttpClient;
+import retrofit2.Retrofit;
+import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
+import retrofit2.converter.gson.GsonConverterFactory;
+
+
+/**
+ * 作者：gjj on 2015/12/1 10:03
+ * 邮箱：Gujj512@163.com
+ */
+public class RetrofitMaker {
+    /**
+     * 不设置token的api
+     */
+    public static <T> T creeatApi(Class<T> clazz, String baseUrl) {
+        return creeatApi(clazz,baseUrl,"");
+    }
+
+    /**
+     * 设置token的api
+     */
+    public static <T> T creeatApi(Class<T> clazz, String baseUrl, String token) {
+        Retrofit retrofit = new Retrofit.Builder().baseUrl(baseUrl)//- Base URL: 总是以 /结尾- @Url: 不要以 / 开头
+                //你也可以通过实现Converter.Factory接口来创建自己的转换器
+                .addConverterFactory(GsonConverterFactory.create())//添加解析器-gson解析
+                .client(initClient(token))//Retrofit 2.0上，OKHttp是必须
+                .addCallAdapterFactory(RxJavaCallAdapterFactory.create())//Service接口现在可以作为Observable返回了
+                .build();
+        return retrofit.create(clazz);
+    }
+
+    /**
+     * 设置okHttp的初始化
+     */
+    public static OkHttpClient initClient(final String token) {
+        OkHttpClient client = new OkHttpClient();
+        client.networkInterceptors().add(new NetWorkInterceptor(token));
+        //   设置cookie     http://blog.csdn.net/sbsujjbcy/article/details/46895039
+        //        client.setCookieHandler()
+        return client;
+    }
+}
