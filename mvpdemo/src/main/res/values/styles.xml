@@ -30,4 +30,18 @@
     <style name="FullscreenActionBarStyle" parent="Widget.AppCompat.ActionBar">
         <!--<item name="android:background">@color/black_overlay</item>-->
     </style>
+
+    <!--主界面下方的布局  -->
+    <style name="main_tab_bottom">
+        <item name="android:textSize">12sp</item>
+        <item name="android:ellipsize">marquee</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:button">@null</item>
+        <item name="android:textColor">@drawable/main_text_selector</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:drawablePadding">3dp</item>
+        <item name="android:layout_weight">1.0</item>
+    </style>
 </resources>
