@@ -1,4 +1,4 @@
-package gjj.android.base.swipClassView;
+package gjj.android.base.view.swipClassView;
 
 import android.content.Intent;
 import android.os.Bundle;

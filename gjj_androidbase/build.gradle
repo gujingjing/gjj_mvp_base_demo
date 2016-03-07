@@ -17,20 +17,32 @@ android {
         }
     }
 }
+repositories {
+    jcenter()
+    //从中央库里面获取依赖
+    mavenCentral()
+    //或者使用指定的本地maven 库
+    maven {
+        //ultra-refresh
+        url 'https://oss.sonatype.org/content/repositories/snapshots'
+    }
+}
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile fileTree(include: ['*.jar'], dir: 'libs')
     testCompile 'junit:junit:4.12'
-    //--------------------------------android supportLib库------------------------------------
+
+    //--------------------------------android supportLib库---------------------------------------------------------------------------
     compile 'com.android.support:appcompat-v7:23.2.0'
 
 
-    //-------------------------------mosby--mvp框架-----------------------------------------------
+    //-------------------------------mosby--mvp框架-----------------------------------------------------------------------------------
     compile 'com.hannesdorfmann.mosby:mvp:2.0.1'
-    compile 'com.hannesdorfmann.mosby:viewstate:2.0.1' // optional viewstate feature
+    compile 'com.hannesdorfmann.mosby:viewstate:2.0.1'
 
 
-    //----------------------------retrofit网络--------------------------------------
+    // optional viewstate feature
+    //----------------------------retrofit网络--------------------------------------------------------------------------------------
     compile 'com.squareup.retrofit2:retrofit:+'
     compile 'com.squareup.okhttp:okhttp:+'
     //RxJava Integration with CallAdapter 它将作为Observable返回
@@ -41,9 +53,17 @@ dependencies {
     compile 'io.reactivex:rxjava:+'
 
 
-    //--------------------------------其他lib库-------------------------------------
+    //--------------------------------其他lib库-----------------------------------------------------------------------------------------
+    //butterknife自动注解
+    compile 'com.jakewharton:butterknife:7.0.1'
     //顶部snakBar
     compile 'com.androidadvance:topsnackbar:0.0.9'
     //正常snakBar
     compile 'com.nispok:snackbar:2.11.+'
+    //RxAndroidAudio
+    compile 'com.github.piasy:rxandroidaudio:1.0.2'
+    //viewpager的一些工具方法----需要导入jar包--viewpager跳转速度
+    compile files('libs/nineoldandroids-2.4.0.jar')
+    //ultra-refresh
+    compile 'in.srain.cube:ultra-ptr:1.0.11'
 }

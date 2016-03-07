@@ -15,7 +15,7 @@ import com.nispok.snackbar.SnackbarManager;
 import gjj.android.base.R;
 import gjj.android.base.manager.AppManager;
 import gjj.android.base.manager.SystemBarTintManager;
-import gjj.android.base.swipClassView.SwipeBackLayout;
+import gjj.android.base.view.swipClassView.SwipeBackLayout;
 import gjj.android.base.tools.NetWorkUtil;
 import gjj.android.base.tools.ToastUtils;
 
@@ -24,7 +24,7 @@ import gjj.android.base.tools.ToastUtils;
  * 邮箱：Gujj512@163.com
  */
 public abstract class BaseActivity  extends FragmentActivity{
-    private BaseActivity context;
+    public BaseActivity context;
     protected SwipeBackLayout layout;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

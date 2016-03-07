@@ -17,7 +17,7 @@ import com.nispok.snackbar.SnackbarManager;
 import gjj.android.base.R;
 import gjj.android.base.manager.AppManager;
 import gjj.android.base.manager.SystemBarTintManager;
-import gjj.android.base.swipClassView.SwipeBackLayout;
+import gjj.android.base.view.swipClassView.SwipeBackLayout;
 import gjj.android.base.tools.NetWorkUtil;
 import gjj.android.base.tools.ToastUtils;
 
@@ -32,7 +32,7 @@ import gjj.android.base.tools.ToastUtils;
 public abstract class MvpBaseActivity  <CV extends View, M, V extends MvpLceView<M>, P extends MvpPresenter<V>>
         extends MvpLceActivity<CV, M, V, P> implements MvpLceView<M> {
 
-    private MvpBaseActivity context;
+    public MvpBaseActivity context;
     protected SwipeBackLayout layout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
