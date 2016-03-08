@@ -3,4 +3,14 @@
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
+    <!--tootalBar边上的文字到左边的距离-->
+    <!--
+    android:contentInsetStart  指的是边上文字到左边的距离
+    android:contentInsetEnd 指的是边上文字到右边的距离
+    android:paddingstart 指的整个Actionbar到左边的距离
+    android: paddingEnd 指的整个Actionbar到右边的距离
+    -->
+    <dimen name="keyline_2">72dp</dimen>
+    <dimen name="app_bar_height">180dp</dimen>
+    <dimen name="app_bar_large">230dp</dimen>
 </resources>

@@ -5,6 +5,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.Window;
 import android.view.WindowManager;
@@ -23,7 +24,7 @@ import gjj.android.base.tools.ToastUtils;
  * 作者：gjj on 2016/3/4 12:46
  * 邮箱：Gujj512@163.com
  */
-public abstract class BaseActivity  extends FragmentActivity{
+public abstract class BaseActivity  extends AppCompatActivity {
     public BaseActivity context;
     protected SwipeBackLayout layout;
     @Override
@@ -37,7 +38,7 @@ public abstract class BaseActivity  extends FragmentActivity{
             layout.attachToActivity(this);
         }
         if(!setNotifyColor()){
-            setStateBarColor(R.color.color_blue);//设置最顶部标题栏颜色
+            setStateBarColor(R.color.colorPrimary);//设置最顶部标题栏颜色
         }
         context = this;
         AppManager.getAppManager().addActivity(this);

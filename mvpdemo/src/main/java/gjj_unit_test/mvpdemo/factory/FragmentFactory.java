@@ -1,11 +1,14 @@
 package gjj_unit_test.mvpdemo.factory;
 
+import android.support.v7.app.AppCompatActivity;
 import android.util.SparseArray;
 
 import java.util.HashMap;
 
 import gjj.android.base.base.BaseFragment;
 import gjj_unit_test.mvpdemo.fragment.fragment1.Fragment1;
+import gjj_unit_test.mvpdemo.fragment.fragment2.Fragment2;
+import gjj_unit_test.mvpdemo.fragment.fragment3.Fragment3;
 
 public class FragmentFactory {
 	//SparseArray性能优化
@@ -22,15 +25,15 @@ public class FragmentFactory {
 					fragmentCreateTime.put(0,System.currentTimeMillis());
 					break;
 				case 1:
-					baseFragment = new Fragment1();
+					baseFragment = new Fragment2();
 					fragmentCreateTime.put(1,System.currentTimeMillis());
 					break;
 				case 2:
-					baseFragment = new Fragment1();
+					baseFragment = new Fragment3();
 					fragmentCreateTime.put(2,System.currentTimeMillis());
 					break;
 				case 3:
-					baseFragment = new Fragment1();
+					baseFragment = new Fragment2();
 					fragmentCreateTime.put(3,System.currentTimeMillis());
 					break;
 			}

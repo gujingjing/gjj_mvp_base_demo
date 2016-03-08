@@ -1,8 +1,10 @@
-package gjj_unit_test.mvpdemo.fragment.fragment1;
+package gjj_unit_test.mvpdemo.fragment;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
@@ -19,7 +21,6 @@ import com.nispok.snackbar.SnackbarManager;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
-import gjj.android.base.base.BaseFragment;
 import gjj_unit_test.mvpdemo.R;
 import gjj_unit_test.mvpdemo.header.ProgressHeaderViewNew;
 import in.srain.cube.views.ptr.PtrFrameLayout;
@@ -27,13 +28,14 @@ import in.srain.cube.views.ptr.PtrHandler;
 import in.srain.cube.views.ptr.util.PtrLocalDisplay;
 
 /**
- * 作者：gjj on 2016/3/7 15:24
+ * 作者：gjj on 2016/3/8 16:38
  * 邮箱：Gujj512@163.com
  */
-public class Fragment1 extends BaseFragment<PtrFrameLayout, Fragment1Model, Fragment1View, Fragment1Present>
-        implements Fragment1View{
+public class BaseFragmentDemo extends Fragment implements Toolbar.OnMenuItemClickListener {
 
     AppCompatActivity compatActivity;
+    @Bind(R.id.toolbar)
+    Toolbar toolbar;
     @Bind(R.id.loadingView)
     ProgressBar loadingView;
     @Bind(R.id.errorView)
@@ -47,7 +49,6 @@ public class Fragment1 extends BaseFragment<PtrFrameLayout, Fragment1Model, Frag
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         compatActivity = (AppCompatActivity) getActivity();
-
         View view = inflater.inflate(R.layout.fragment_fragment1, container, false);
         ButterKnife.bind(this, view);
         return view;
@@ -56,11 +57,26 @@ public class Fragment1 extends BaseFragment<PtrFrameLayout, Fragment1Model, Frag
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
         initRefresh();
-        loadData(false);
+        initTotalBar();
     }
 
+    public void initTotalBar() {
+        setHasOptionsMenu(true);
+        // App Logo
+        toolbar.setLogo(R.mipmap.ic_launcher);
+        // Title
+        toolbar.setTitle("My Title");
+        // Sub Title
+        toolbar.setSubtitle("Sub title");
+
+        ((AppCompatActivity) getActivity()).setSupportActionBar(toolbar);
+        // Navigation Icon 要設定在 setSupoortActionBar 才有作用
+        // 否則會出現 back bottom
+        toolbar.setNavigationIcon(R.mipmap.ic_launcher);
+        // Menu item click 的監聽事件一樣要設定在 setSupportActionBar 才有作用
+        toolbar.setOnMenuItemClickListener(this);
+    }
 
     public void initRefresh() {
         // header
@@ -114,42 +130,32 @@ public class Fragment1 extends BaseFragment<PtrFrameLayout, Fragment1Model, Frag
     }
 
     @Override
-    protected String getErrorMessage(Throwable e, boolean pullToRefresh) {
-        return null;
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        super.onCreateOptionsMenu(menu, inflater);
+        // 為了讓 Toolbar 的 Menu 有作用，這邊的程式不可以拿掉
+//        .getMenuInflater().inflate(R.menu.menu_main, menu);//正常的activity用这个
+        inflater.inflate(R.menu.menu_main, menu);//fragment用这个
     }
 
     @Override
-    public Fragment1Present createPresenter() {
-        return new Fragment1Present();
-    }
-
-
-
-
-    @Override
-    public void setData(Fragment1Model data) {
-
-    }
-
-    @Override
-    public void loadData(boolean pullToRefresh) {
-        presenter.refreshView(pullToRefresh);
+    public boolean onMenuItemClick(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_edit:
+//                break;
+            case R.id.action_share:
+//                break;
+            case R.id.action_settings:
+                SnackbarManager.show(
+                        Snackbar.with(getActivity())
+                                .text(item.getTitle()));
+                break;
+        }
+        return true;
     }
 
     @Override
     public void onDestroyView() {
         super.onDestroyView();
         ButterKnife.unbind(this);
-    }
-
-    @Override
-    public void showContent() {
-        super.showContent();
-    }
-
-    @Override
-    public void showError(Throwable e, boolean pullToRefresh) {
-        super.showError(e, pullToRefresh);
-
     }
 }

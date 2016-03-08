@@ -31,6 +31,19 @@
         <!--<item name="android:background">@color/black_overlay</item>-->
     </style>
 
+    <!-- Action Bar -->
+    <style name="ActionBarThemeOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
+        <item name="android:textColorPrimary">@color/white</item>
+        <item name="colorControlNormal">@color/white</item>
+        <item name="colorControlHighlight">#3fff</item>
+    </style>
+    <style name="ActionBarPopupThemeOverlay" parent="ThemeOverlay.AppCompat.Light"/>
+    <style name="ActionBar.TitleText" parent="TextAppearance.AppCompat.Widget.ActionBar.Title">
+        <item name="android:textColor">#fff</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+
     <!--主界面下方的布局  -->
     <style name="main_tab_bottom">
         <item name="android:textSize">12sp</item>

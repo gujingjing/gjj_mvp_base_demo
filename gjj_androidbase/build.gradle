@@ -66,4 +66,6 @@ dependencies {
     compile files('libs/nineoldandroids-2.4.0.jar')
     //ultra-refresh
     compile 'in.srain.cube:ultra-ptr:1.0.11'
+    //圆形图片
+    compile 'de.hdodenhof:circleimageview:2.0.0'
 }

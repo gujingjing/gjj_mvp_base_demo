@@ -1,4 +1,4 @@
-package gjj_unit_test.mvpdemo.fragment.fragment1;
+package gjj_unit_test.mvpdemo.adapter;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;

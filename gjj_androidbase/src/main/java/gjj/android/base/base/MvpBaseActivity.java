@@ -45,7 +45,7 @@ public abstract class MvpBaseActivity  <CV extends View, M, V extends MvpLceView
             layout.attachToActivity(this);
         }
         if(!setNotifyColor()){
-            setStateBarColor(R.color.color_blue);//设置最顶部标题栏颜色
+            setStateBarColor(R.color.colorPrimary);//设置最顶部标题栏颜色
         }
         context = this;
         AppManager.getAppManager().addActivity(this);
