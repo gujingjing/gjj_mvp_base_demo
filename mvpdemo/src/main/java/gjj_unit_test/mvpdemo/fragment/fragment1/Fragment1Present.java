@@ -8,13 +8,14 @@ import gjj.android.base.base.BasePresenter;
  */
 public class Fragment1Present extends BasePresenter<Fragment1View> {
 
-    public void refreshView(boolean pullToRefresh){
+    public void refreshView(final boolean pullToRefresh){
         getView().showLoading(pullToRefresh);
         new android.os.Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
 //                ToastUtils.setToastShot(context,"刷新数据成功");
-                getView().showContent();
+//                getView().showContent();
+                getView().showError(new Throwable("fdfds"),pullToRefresh);
             }
         }, 3000);
     }

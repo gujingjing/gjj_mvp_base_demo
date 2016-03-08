@@ -8,6 +8,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
 
 import butterknife.Bind;
@@ -23,12 +24,12 @@ import in.srain.cube.views.ptr.util.PtrLocalDisplay;
  * 作者：gjj on 2016/3/7 15:24
  * 邮箱：Gujj512@163.com
  */
-public class Fragment1 extends BaseFragment<RelativeLayout, Fragment1Model, Fragment1View, Fragment1Present>
+public class Fragment1 extends BaseFragment<PtrFrameLayout, Fragment1Model, Fragment1View, Fragment1Present>
         implements Fragment1View {
 
     @Bind(R.id.toolbar)
     Toolbar toolbar;
-    @Bind(R.id.material_style_ptr_frame)
+    @Bind(R.id.contentView)
     PtrFrameLayout frame;
     @Bind(R.id.fab)
     FloatingActionButton fab;
@@ -127,5 +128,11 @@ public class Fragment1 extends BaseFragment<RelativeLayout, Fragment1Model, Frag
     @Override
     public void showContent() {
         super.showContent();
+    }
+
+    @Override
+    public void showError(Throwable e, boolean pullToRefresh) {
+        super.showError(e, pullToRefresh);
+
     }
 }
