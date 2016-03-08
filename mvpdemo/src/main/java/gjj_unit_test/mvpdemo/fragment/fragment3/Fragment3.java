@@ -65,6 +65,15 @@ public class Fragment3 extends BaseFragment<PtrFrameLayout, Fragment3Model, Frag
         // Navigation Icon 要設定在 setSupoortActionBar 才有作用
         // 否則會出現 back bottom
         toolbar.setNavigationIcon(R.mipmap.ic_launcher);
+//        ((AppCompatActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);//返回箭头
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SnackbarManager.show(
+                        Snackbar.with(getActivity())
+                                .text("点击返回了"));
+            }
+        });
         // Menu item click 的監聽事件一樣要設定在 setSupportActionBar 才有作用
         toolbar.setOnMenuItemClickListener(this);
     }

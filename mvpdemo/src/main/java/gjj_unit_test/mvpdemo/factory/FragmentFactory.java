@@ -33,7 +33,7 @@ public class FragmentFactory {
 					fragmentCreateTime.put(2,System.currentTimeMillis());
 					break;
 				case 3:
-					baseFragment = new Fragment2();
+					baseFragment = new Fragment3();
 					fragmentCreateTime.put(3,System.currentTimeMillis());
 					break;
 			}

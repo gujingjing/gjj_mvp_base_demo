@@ -5,6 +5,7 @@ import android.support.annotation.Nullable;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.KeyEvent;
@@ -65,7 +66,7 @@ public class HomeActivity extends BaseActivity implements Toolbar.OnMenuItemClic
     private List<BaseFragment> fragments;
     private MainFragmentAdapter adapter;
     private long exitTime = 0;
-
+    ActionBarDrawerToggle mDrawerToggle;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -86,8 +87,15 @@ public class HomeActivity extends BaseActivity implements Toolbar.OnMenuItemClic
         initFragment();
         initViewPager();
         initTotalBar();
+        intiDraw();
     }
 
+    public void intiDraw(){
+        mDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.drawer_open,
+                R.string.drawer_close);
+        mDrawerToggle.syncState();
+        drawerLayout.setDrawerListener(mDrawerToggle);
+    }
     public void initTotalBar() {
         setSupportActionBar(toolbar);
         // App Logo
@@ -99,7 +107,16 @@ public class HomeActivity extends BaseActivity implements Toolbar.OnMenuItemClic
 
         // Navigation Icon 要設定在 setSupoortActionBar 才有作用
         // 否則會出現 back bottom
-        toolbar.setNavigationIcon(R.mipmap.ic_launcher);
+//        toolbar.setNavigationIcon(R.mipmap.ic_launcher);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);//返回箭头
+//        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                SnackbarManager.show(
+//                        Snackbar.with(context)
+//                                .text("点击返回了"));
+//            }
+//        });
         // Menu item click 的監聽事件一樣要設定在 setSupportActionBar 才有作用
         toolbar.setOnMenuItemClickListener(this);
     }
