@@ -33,7 +33,16 @@
                 android:layout_height="wrap_content"
                 android:hint="Password" />
         </android.support.design.widget.TextInputLayout>
-
+        <Button
+            android:id="@+id/db_test_save"
+            android:text="数据库存储测试"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <Button
+            android:id="@+id/db_test_get"
+            android:text="数据库取出测试"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
         <include layout="@layout/long_content"/>
 
     </LinearLayout>
