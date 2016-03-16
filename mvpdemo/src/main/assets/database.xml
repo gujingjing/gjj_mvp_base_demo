@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<database>
+    <!--http://www.jeepshoe.org/805599502.htm-->
+    <!-- 数据库名称 -->
+    <dbname value="gjj_test.db"></dbname>
+
+    <!-- 数据库版本 -->
+    <version value="1"></version>
+
+    <!-- 数据库表
+     这些标签都可以自己定义，像是mapping就可以改为table，但如果某些标签是一组的，最好就是放进list标签里，这样方便xml解析器解析。
+     -->
+    <list>
+        <mapping class="com.zwb.args.dbpratice.model.Status"></mapping>
+        <mapping class="com.zwb.args.dbpratice.model.User"></mapping>
+    </list>
+</database>

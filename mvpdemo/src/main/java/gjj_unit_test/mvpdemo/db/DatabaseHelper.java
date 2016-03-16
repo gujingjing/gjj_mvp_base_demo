@@ -42,6 +42,14 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
         }
     }
 
+    /**
+     SQLiteOpenHelper类的构造函数有一个参数是int version，它的意思就是指数据库版本号。比如在应用1.0版本中，我们使用
+     SQLiteOpenHelper访问数据库时，该参数为1，那么数据库版本号1就会写在我们的数据库中。到了1.1版本，我们的数据库需要发生变化，
+     那么我们1.1版本的程序中就要使用一个大于1的整数来构造SQLiteOpenHelper类，用于访问新的数据库，
+     比如2。当我们的1.1新程序读取1.0版本的老数据库时，就发现老数据库里存储的数据库版本是1，而我们新程序访问它时填的版本号为2，系统就知道数据库需要升级。
+
+     总结:当我们的1.1新程序读取1.0版本的老数据库时，就发现老数据库里存储的数据库版本是1，而我们新程序访问它时填的版本号为2，系统就知道数据库需要升级。
+     */
     @Override
     public void onUpgrade(SQLiteDatabase database, ConnectionSource connectionSource, int oldVersion, int newVersion) {
         //更新表

@@ -32,6 +32,7 @@ import gjj.android.base.manager.AppManager;
 import gjj.android.base.view.viewpager.MyViewPager;
 import gjj_unit_test.mvpdemo.R;
 import gjj_unit_test.mvpdemo.adapter.MainFragmentAdapter;
+import gjj_unit_test.mvpdemo.db.DatabaseHelper;
 import gjj_unit_test.mvpdemo.factory.FragmentFactory;
 import gjj_unit_test.mvpdemo.fragment.fragment1.Fragment1;
 
@@ -73,6 +74,7 @@ public class HomeActivity extends BaseActivity implements Toolbar.OnMenuItemClic
         setContentView(R.layout.activity_home);
         ButterKnife.bind(this);
         initData();
+        checkDBVersion();
         initListener();
     }
 
@@ -90,6 +92,9 @@ public class HomeActivity extends BaseActivity implements Toolbar.OnMenuItemClic
         intiDraw();
     }
 
+    public void checkDBVersion(){
+
+    }
     public void intiDraw(){
         mDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.drawer_open,
                 R.string.drawer_close);
