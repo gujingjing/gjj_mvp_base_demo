@@ -215,6 +215,11 @@ public class HomeActivity extends BaseActivity implements Toolbar.OnMenuItemClic
     }
 
     @Override
+    public boolean setNotifyNetSatte() {
+        return false;
+    }
+
+    @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_BACK && event.getAction() == KeyEvent.ACTION_DOWN) {
             if ((System.currentTimeMillis() - exitTime) > 2000) {

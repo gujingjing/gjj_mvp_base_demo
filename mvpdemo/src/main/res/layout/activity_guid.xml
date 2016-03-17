@@ -1,43 +1,22 @@
-<FrameLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="fill_parent"
-    android:background="@android:color/transparent"
+    android:fitsSystemWindows="true"
     android:layout_height="fill_parent">
 
-    <gjj_unit_test.mvpdemo.view.guideView.GuideViewPager
-        android:id="@+id/myCustomViewPager"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent" />
+    <Button
+        android:id="@+id/bRetry"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:stateListAnimator="@android:animator/fade_in"
+        android:text="Retry"/>
 
     <FrameLayout
-        android:layout_width="fill_parent"
-        android:layout_gravity="bottom"
-        android:layout_height="wrap_content">
-
-        <com.viewpagerindicator.CirclePageIndicator
-            android:id="@+id/indicator"
-            android:layout_margin="45dp"
-            android:padding="10dp"
-            android:layout_height="wrap_content"
-            android:layout_width="fill_parent"
-            />
-
-        <Button
-            android:id="@+id/btn_skip"
-            android:layout_gravity="right"
-            android:paddingTop="22dp"
-            android:layout_margin="20dp"
-            android:gravity="center_vertical"
-            android:visibility="gone"
-            android:textSize="20sp"
-            android:textColor="@color/white"
-            android:text="Accept--接受"
-            android:background="@null"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-    </FrameLayout>
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 
 
-</FrameLayout>
+</RelativeLayout>

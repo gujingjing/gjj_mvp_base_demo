@@ -1,17 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="gjj_unit_test.mvpdemo">
 
     <uses-permission android:name="android.permission.RECORD_AUDIO"/>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 
     <application
         android:allowBackup="true"
         android:name=".MyApplication"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        tools:replace="android:icon, android:theme,android:label"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
+        <!--用来替换导入的包中有冲突的属性-->
         <activity
             android:name=".SplashActivity"
             android:label="@string/app_name"
@@ -27,7 +31,7 @@
             android:theme="@style/AppTheme.NoActionBar"/>
         <!--引导界面-->
         <activity android:name=".GuideActivity"
-            android:theme="@style/AppTheme.NoActionBar.FullScreen"/>
+            android:theme="@style/AppTheme.NoActionBar"/>
     </application>
 
 </manifest>

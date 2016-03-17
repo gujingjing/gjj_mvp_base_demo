@@ -1,6 +1,6 @@
 package gjj_unit_test.mvpdemo;
 
-//import com.squareup.leakcanary.LeakCanary;
+import com.squareup.leakcanary.LeakCanary;
 
 import gjj.android.base.base.BaseApplication;
 import gjj.android.base.cash.spCash.SharedPrefsUtil;
@@ -17,7 +17,7 @@ public class MyApplication extends BaseApplication {
         initLogUtils();
         initSPUtils();
         //初始化内存泄漏
-//        LeakCanary.install(this);
+        LeakCanary.install(this);
 
     }
 

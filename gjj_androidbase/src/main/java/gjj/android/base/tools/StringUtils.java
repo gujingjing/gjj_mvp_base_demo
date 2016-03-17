@@ -306,4 +306,11 @@ public class StringUtils {
     public static String getResourceString(Context context,int id){
         return context.getResources().getString(id);
     }
+    /**
+     * dpToPx
+     */
+    public static int dpToPix(int sizeInDp, Context context) {
+        float scale = context.getResources().getDisplayMetrics().density;
+        return (int) (sizeInDp*scale + 0.5f);
+    }
 }

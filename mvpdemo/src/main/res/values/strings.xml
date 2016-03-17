@@ -5,4 +5,11 @@
     <string name="shared_img" translatable="false">shared_img</string>
     <string name="drawer_open">打开</string>
     <string name="drawer_close">关闭</string>
+    <!--guideview测试文字-->
+    <string name="title_activity_main">MainActivity</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="text_web_ceo">WEB CEO</string>
+    <string name="text_web_dev">WEB DEVELOPER</string>
+    <string name="text_e_commerce">e-commerce</string>
+
 </resources>

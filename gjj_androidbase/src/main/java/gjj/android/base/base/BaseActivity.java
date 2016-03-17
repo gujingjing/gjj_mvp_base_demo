@@ -53,6 +53,10 @@ public abstract class BaseActivity  extends AppCompatActivity {
      * 是否需要设置导航栏的颜色
      */
     public abstract boolean setNotifyColor();
+    /**
+     * 是否需要设置监听网络状态操作
+     */
+    public abstract boolean setNotifyNetSatte();
     @Override
     public void finish() {
         super.finish();
@@ -82,10 +86,14 @@ public abstract class BaseActivity  extends AppCompatActivity {
      * 当没有网络的时候
      */
     public void onDisConnect() {
+        if(setNotifyNetSatte()){
+            return;
+        }
+
 //        ToastUtils.setToastShot(context, "暂时没有网络,请稍后重试");
-        SnackbarManager.show(
-                Snackbar.with(context)
-                        .text("暂时没有网络,请稍后重试"));
+            SnackbarManager.show(
+                    Snackbar.with(context)
+                            .text("暂时没有网络,请稍后重试"));
     }
 
     /**
@@ -94,6 +102,9 @@ public abstract class BaseActivity  extends AppCompatActivity {
      * wifi, CMNET, CMWAP, noneNet
      */
     public void onConnect(NetWorkUtil.NetType type) {
+        if(setNotifyNetSatte()){
+            return;
+        }
         String netType="";
         ToastUtils.setToastShot(context, "网络已经连接");
         switch (type){

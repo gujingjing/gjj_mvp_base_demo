@@ -34,17 +34,22 @@ public class SplashActivity extends BaseActivity {
         return true;
     }
 
+    @Override
+    public boolean setNotifyNetSatte() {
+        return true;
+    }
+
     public void goToActivity(){
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
                 Intent intent;
                 //判断是否是第一次加载
-                if(SharedPrefsUtil.getBoolean(SplashActivity.this,AppParmers.IF_HASE_OPEN)){
-                    intent = new Intent(SplashActivity.this, GuideActivity.class);//进入引导界面
-                }else{
+//                if(!SharedPrefsUtil.getBoolean(SplashActivity.this,AppParmers.IF_HASE_OPEN)){
+//                    intent = new Intent(SplashActivity.this, GuideActivity.class);//进入引导界面
+//                }else{
                     intent = new Intent(SplashActivity.this, HomeActivity.class);
-                }
+//                }
                 startActivity(intent);
                 finish();
             }
