@@ -20,8 +20,8 @@ public class BaseApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        initLogUtils();
-        initSPUtils();
+//        initLogUtils();
+//        initSPUtils();
         registerNetWorkStateListener();// 注册网络状态监测器
         NetworkStateReceiver.registerNetworkStateReceiver(this);//注册全局监听网络状态的观察者
     }

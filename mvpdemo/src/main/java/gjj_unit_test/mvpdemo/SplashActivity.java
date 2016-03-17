@@ -12,6 +12,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import gjj.android.base.base.BaseActivity;
+import gjj.android.base.cash.spCash.SharedPrefsUtil;
 import gjj_unit_test.mvpdemo.activity.HomeActivity;
 
 public class SplashActivity extends BaseActivity {
@@ -37,7 +38,13 @@ public class SplashActivity extends BaseActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent intent = new Intent(SplashActivity.this, HomeActivity.class);
+                Intent intent;
+                //判断是否是第一次加载
+                if(SharedPrefsUtil.getBoolean(SplashActivity.this,AppParmers.IF_HASE_OPEN)){
+                    intent = new Intent(SplashActivity.this, GuideActivity.class);//进入引导界面
+                }else{
+                    intent = new Intent(SplashActivity.this, HomeActivity.class);
+                }
                 startActivity(intent);
                 finish();
             }
