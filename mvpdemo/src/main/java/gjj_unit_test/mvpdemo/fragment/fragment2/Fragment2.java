@@ -47,6 +47,7 @@ public class Fragment2 extends BaseFragment<LinearLayout, Fragment2Model, Fragme
     @Bind(R.id.db_test_get)
     Button dbTestGet;
 
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -99,13 +100,16 @@ public class Fragment2 extends BaseFragment<LinearLayout, Fragment2Model, Fragme
         super.showError(e, pullToRefresh);
 
     }
-    @OnClick({R.id.db_test_save,R.id.db_test_get})void onclick(View view){
+    @OnClick({R.id.db_test_save,R.id.db_test_get,R.id.dialog_test})void onclick(View view){
         switch (view.getId()){
             case R.id.db_test_save://数据库存储
                 testAddArticle();
                 break;
             case R.id.db_test_get://数据库获取数据
                 testRead();
+                break;
+            case R.id.dialog_test://dialog弹出测试
+
                 break;
         }
     }

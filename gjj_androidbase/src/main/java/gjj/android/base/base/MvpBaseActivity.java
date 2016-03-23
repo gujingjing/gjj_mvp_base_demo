@@ -81,6 +81,7 @@ public abstract class MvpBaseActivity  <CV extends View, M, V extends MvpLceView
     protected void onDestroy() {
         super.onDestroy();
         //移除activity的时候使用AppManager.finishActivity();
+        AppManager.getAppManager().finishActivity(this);
     }
 
     /**

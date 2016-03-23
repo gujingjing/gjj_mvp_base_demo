@@ -43,6 +43,11 @@
             android:text="数据库取出测试"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
+        <Button
+            android:id="@+id/dialog_test"
+            android:text="dialog弹出测试"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
         <include layout="@layout/long_content"/>
 
     </LinearLayout>

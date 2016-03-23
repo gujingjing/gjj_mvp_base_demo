@@ -80,6 +80,7 @@ public abstract class BaseActivity  extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
         //移除activity的时候使用AppManager.finishActivity();
+        AppManager.getAppManager().finishActivity(this);
     }
 
     /**
